@@ -10,8 +10,8 @@
             <div class="modal-body">
                 <p>{{ __('This action cannot be undone!') }}</p>
                 <form id="deleteForm" action="" method="post">
-                    {{ method_field('DELETE') }}
-                    {{ csrf_field() }}
+                    @method('DELETE')
+                    @csrf()
                 </form>
             </div>
             <div class="modal-footer">
