@@ -12,4 +12,15 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .js('resources/js/delete-modal', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .extract();
+
+
+if (!mix.inProduction()) {
+    mix.sourceMaps()
+}
+
+if (mix.inProduction()) {
+    mix.version();
+}
