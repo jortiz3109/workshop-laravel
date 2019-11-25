@@ -19,6 +19,7 @@ class CollaboratorController extends Controller
     public function index()
     {
         $collaborators = Collaborator::with(['city', 'role'])->paginate();
+
         return view('collaborators.index', compact('collaborators'));
     }
 
@@ -44,7 +45,6 @@ class CollaboratorController extends Controller
      */
     public function store(StoreRequest $request)
     {
-
         $collaborator = new Collaborator;
         $collaborator->name = $request->input('name');
         $collaborator->email = $request->input('email');
@@ -106,8 +106,8 @@ class CollaboratorController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Collaborator $collaborator
-     * @return \Illuminate\Http\Response
      * @throws \Exception
+     * @return \Illuminate\Http\Response
      */
     public function destroy(Collaborator $collaborator)
     {
