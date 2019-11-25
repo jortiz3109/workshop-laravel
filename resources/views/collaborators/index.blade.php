@@ -25,6 +25,9 @@
             </table>
         </div>
     </div>
+    <div class="mt-3 d-flex justify-content-center">
+        {{ $collaborators->links() }}
+    </div>
 @endsection
 @push('modals')
     @include('partials.__confirm_delete_modal')
