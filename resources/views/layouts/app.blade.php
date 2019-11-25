@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    @stack('modals')
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -73,8 +74,11 @@
         </nav>
 
         <main class="container py-4">
+            @include('partials.__alerts')
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset(mix('js/app.js')) }}"></script>
+    <script src="{{ asset(mix('js/delete-modal.js')) }}"></script>
 </body>
 </html>
