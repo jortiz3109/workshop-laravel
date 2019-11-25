@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Colaborator extends Model
+class Collaborator extends Model
 {
     /**
      * Relationship between collaborator and role
@@ -23,5 +23,10 @@ class Colaborator extends Model
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function isEnabled(): bool
+    {
+        return is_null($this->disabled_at);
     }
 }
