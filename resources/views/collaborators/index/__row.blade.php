@@ -12,7 +12,7 @@
             <a href="{{ route('collaborators.edit', $collaborator) }}" class="btn btn-link" title="{{ __('Edit') }}">
                 <i class="fas fa-edit"></i>
             </a>
-            <button type="button" class="btn btn-link text-danger" title="{{ __('Delete') }}">
+            <button type="button" class="btn btn-link text-danger" data-route="{{ route('collaborators.destroy', $collaborator) }}" data-toggle="modal" data-target="#confirmDeleteModal" title="{{ __('Delete') }}">
                 <i class="fas fa-trash"></i>
             </button>
         </div>

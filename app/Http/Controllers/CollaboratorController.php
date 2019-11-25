@@ -78,11 +78,14 @@ class CollaboratorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Collaborator $collaborator
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Collaborator $collaborator)
     {
-        //
+        $collaborator->delete();
+
+        return redirect()->route('collaborators.index')->withMessage(__('Collaborator deleted successfully'));
     }
 }

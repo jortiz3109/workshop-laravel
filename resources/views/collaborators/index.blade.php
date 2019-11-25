@@ -3,6 +3,9 @@
     <div class="card card-default">
         <div class="card-header d-flex justify-content-between">
             <h5 class="card-title mb-0">{{ __('Collaborators') }}</h5>
+            <a href="{{ route('collaborators.create') }}" class="btn btn-success btn-sm">
+                <i class="fas fa-plus"></i> {{ __('Create') }}
+            </a>
         </div>
         <div class="table-responsive-lg">
             <table class="table table-hover">
@@ -23,3 +26,6 @@
         </div>
     </div>
 @endsection
+@push('modals')
+    @include('partials.__confirm_delete_modal')
+@endpush
