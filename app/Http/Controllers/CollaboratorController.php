@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Collaborator;
 use Illuminate\Http\Request;
 
 class CollaboratorController extends Controller
@@ -13,7 +14,10 @@ class CollaboratorController extends Controller
      */
     public function index()
     {
-        //
+        $collaborators = Collaborator::with(['city', 'role'])->paginate();
+
+        return view('collaborators.index', compact('collaborators'));
+
     }
 
     /**
