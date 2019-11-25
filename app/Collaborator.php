@@ -29,4 +29,10 @@ class Collaborator extends Model
     {
         return is_null($this->disabled_at);
     }
+
+    public function hasTasks(): bool
+    {
+        //@TODO refactor when tasks module is finished
+        return false;
+    }
 }
