@@ -30,11 +30,9 @@ class CollaboratorController extends Controller
      */
     public function create()
     {
-        $cities = City::all();
-        $roles = Role::all();
         $collaborator = new Collaborator;
 
-        return view('collaborators.create', compact('cities', 'roles', 'collaborator'));
+        return view('collaborators.create', compact('collaborator'));
     }
 
     /**
@@ -72,15 +70,12 @@ class CollaboratorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Collaborator $collaborator
      * @return \Illuminate\Http\Response
      */
     public function edit(Collaborator $collaborator)
     {
-        $cities = City::all();
-        $roles = Role::all();
-
-        return view('collaborators.edit', compact('cities', 'roles', 'collaborator'));
+        return view('collaborators.edit', compact('collaborator'));
     }
 
     /**
