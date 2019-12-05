@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\City;
 use App\Collaborator;
 use App\Http\Requests\Collaborators\StoreRequest;
 use App\Http\Requests\Collaborators\UpdateRequest;
-use App\Role;
-use Illuminate\Http\Request;
 
 class CollaboratorController extends Controller
 {
@@ -20,7 +17,7 @@ class CollaboratorController extends Controller
     {
         $collaborators = Collaborator::with(['city', 'role'])->paginate();
 
-        return view('collaborators.index', compact('collaborators'));
+        return response()->view('collaborators.index', compact('collaborators'));
     }
 
     /**
@@ -32,7 +29,7 @@ class CollaboratorController extends Controller
     {
         $collaborator = new Collaborator;
 
-        return view('collaborators.create', compact('collaborator'));
+        return response()->view('collaborators.create', compact('collaborator'));
     }
 
     /**
@@ -64,7 +61,7 @@ class CollaboratorController extends Controller
     {
         $collaborator->load('city', 'role');
 
-        return view('collaborators.show')->withCollaborator($collaborator);
+        return response()->view('collaborators.show', compact('collaborator'));
     }
 
     /**
@@ -75,7 +72,7 @@ class CollaboratorController extends Controller
      */
     public function edit(Collaborator $collaborator)
     {
-        return view('collaborators.edit', compact('collaborator'));
+        return response()->view('collaborators.edit', compact('collaborator'));
     }
 
     /**
